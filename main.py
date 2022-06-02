@@ -12,4 +12,21 @@ gray = (128, 128, 128)
 
 screen = pygame.display.set_mode([WIDTH, HEIGHT])
 pygame.display.set_caption('Hi Hat')
-label_font = pygame.font.Font('freesansbold.ttf')
+# use own font and drop it in file structure
+label_font = pygame.font.Font('freesansbold.ttf', 32)
+
+fps = 60
+timer = pygame.time.Clock()
+
+run = True
+# as long as run is true, we're going to execute this 60 times per second
+while run:
+    timer.tick(fps)
+    screen.fill(black)
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+
+    pygame.display.flip()
+pygame.quit()
