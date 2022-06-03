@@ -37,6 +37,9 @@ def draw_grid():
     screen.blit(clap_text, (30, 430))
     tom_text = label_font.render('Tom', True, white)
     screen.blit(tom_text, (30, 530))
+    for i in range(6):
+        pygame.draw.line(
+            screen, gray, [(0, (i * 100) + 100), (200, (i * 100) + 100)])
 
 
 run = True
