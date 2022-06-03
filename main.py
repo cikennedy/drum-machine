@@ -20,9 +20,23 @@ timer = pygame.time.Clock()
 
 
 def draw_grid():
-    left_box = pygame.draw.rect(screen, gray, [0, 0, 200, HEIGHT], 5)
+    left_box = pygame.draw.rect(screen, gray, [0, 0, 200, HEIGHT - 200], 5)
     bottom_box = pygame.draw.rect(
         screen, gray, [0, HEIGHT - 200, WIDTH, 200], 5)
+    boxes = []
+    colors = [gray, white, gray]
+    hi_hat_text = label_font.render('Hi Hat', True, white)
+    screen.blit(hi_hat_text, (30, 30))
+    snare_text = label_font.render('Snare', True, white)
+    screen.blit(snare_text, (30, 130))
+    kick_text = label_font.render('Kick', True, white)
+    screen.blit(kick_text, (30, 230))
+    crash_cymbal_text = label_font.render('Crash', True, white)
+    screen.blit(crash_cymbal_text, (30, 330))
+    clap_text = label_font.render('Clap', True, white)
+    screen.blit(clap_text, (30, 430))
+    tom_text = label_font.render('Tom', True, white)
+    screen.blit(tom_text, (30, 530))
 
 
 run = True
