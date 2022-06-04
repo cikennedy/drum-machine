@@ -17,6 +17,8 @@ label_font = pygame.font.Font('freesansbold.ttf', 32)
 
 fps = 60
 timer = pygame.time.Clock()
+beats = 8
+instruments = 6
 
 
 def draw_grid():
@@ -37,9 +39,14 @@ def draw_grid():
     screen.blit(clap_text, (30, 430))
     tom_text = label_font.render('Tom', True, white)
     screen.blit(tom_text, (30, 530))
-    for i in range(6):
+    for i in range(instruments):
         pygame.draw.line(
-            screen, gray, [(0, (i * 100) + 100), (200, (i * 100) + 100)])
+            screen, gray, (0, (i * 100) + 100), (200, (i * 100) + 100), 3)
+
+    for i in range(beats):
+        for j in range(instruments):
+            rect = pygame.draw.rect(
+                screen, gray, [i * ((WIDTH - 200) // beats) + 200, (j * 100), ((WIDTH - 200) // beats), ((HEIGHT - 200) // instruments)], 5, 5)
 
 
 run = True
