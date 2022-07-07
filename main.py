@@ -19,6 +19,8 @@ fps = 60
 timer = pygame.time.Clock()
 beats = 8
 instruments = 6
+boxes = []
+clicked = [[-1 for _ in range(beats)]]
 
 
 def draw_grid():
@@ -68,6 +70,7 @@ while run:
                 # position at which the mouse button was when the mousedown occurs
                 if boxes[i][0].colliderect(event.pos):
                     coords = boxes[i][1]
+                    clicked[coords[1]][coords[0]]
 
     pygame.display.flip()
 pygame.quit()
