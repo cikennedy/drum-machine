@@ -20,7 +20,7 @@ timer = pygame.time.Clock()
 beats = 8
 instruments = 6
 boxes = []
-clicked = [[-1 for _ in range(beats)]]
+clicked = [[-1 for _ in range(beats)] for _ in range(instruments)]
 
 
 def draw_grid():
