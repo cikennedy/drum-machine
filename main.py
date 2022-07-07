@@ -47,6 +47,9 @@ def draw_grid():
         for j in range(instruments):
             rect = pygame.draw.rect(
                 screen, gray, [i * ((WIDTH - 200) // beats) + 200, (j * 100), ((WIDTH - 200) // beats), ((HEIGHT - 200) // instruments)], 5, 5)
+            # returning the rectangle of each beat, also returning the x and y coordinate of it
+            boxes.append((rect, (i, j)))
+    return boxes
 
 
 run = True
@@ -54,11 +57,17 @@ run = True
 while run:
     timer.tick(fps)
     screen.fill(black)
-    draw_grid()
+    boxes = draw_grid()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            # everytime we update the total beats, that list is going to change so it has to be the length of boxes
+            for i in range(len(boxes)):
+                # position at which the mouse button was when the mousedown occurs
+                if boxes[i][0].colliderect(event.pos):
+                    coords = boxes[i][1]
 
     pygame.display.flip()
 pygame.quit()
