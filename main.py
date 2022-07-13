@@ -70,7 +70,7 @@ while run:
                 # position at which the mouse button was when the mousedown occurs
                 if boxes[i][0].colliderect(event.pos):
                     coords = boxes[i][1]
-                    clicked[coords[1]][coords[0]]
+                    clicked[coords[1]][coords[0]] *= -1
 
     pygame.display.flip()
 pygame.quit()
